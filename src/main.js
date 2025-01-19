@@ -34,7 +34,7 @@ document.querySelector("#app").innerHTML = `
       <div id="project-row">
       Model 1
         <div class="three-model">
-          <img src="./houseDrawings/houseDrawings/house1.jpg" id="model1" alt="Model 1 Image" />
+          <img src="./public/Balance.jpg" id="model1" alt="Model 1 Image" />
         </div>
         <div id="images-description">
           <div id="images">
