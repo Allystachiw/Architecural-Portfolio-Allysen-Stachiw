@@ -2,11 +2,11 @@ import "./style.css";
 import data from "./data/data";
 import { createThreeScene } from "./threeScene";
 
-const cubes = [
-  "./cubeDrawings/cube1.webp",
-  "./cubeDrawings/cube2.webp",
-  "./cubeDrawings/cube3.webp",
-  "./cubeDrawings/cube4.webp",
+const Balance = [
+  "./BalanceImages/Cityskyline.jpg",
+  "./BalanceImages/Forsetcabin.jpg",
+  "./BalanceImages/Stadiumfront.jpg",
+  "./BalanceImages/ImageLogos.jpg",
 ];
 
 const trees = [
@@ -32,15 +32,15 @@ document.querySelector("#app").innerHTML = `
 
     <section id="projects">
       <div id="project-row">
-      Model 1
+      Balance
         <div class="three-model">
-          <img src="./public/Balance.jpg" id="model1" alt="Model 1 Image" />
+          <img src="./BalanceImages/Balancebox.jpg" id="model1" alt="Model 1 Image" />
         </div>
         <div id="images-description">
           <div id="images">
-            ${cubes
+            ${Balance
               .map(
-                (cube, index) => `<img src="${cube}" alt="cube${index + 1}" />`
+                (Balance, index) => `<img src="${Balance}" alt="cube${index + 1}" />`
               )
               .join("")}
           </div>
