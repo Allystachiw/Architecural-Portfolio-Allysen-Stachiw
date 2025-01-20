@@ -32,7 +32,7 @@ document.querySelector("#app").innerHTML = `
 
     <section id="projects">
       <div id="project-row">
-      Balance
+      A Balanced Lifestyle
         <div class="three-model">
           <img src="./BalanceImages/Balancebox.jpg" id="model1" alt="Model 1 Image" />
         </div>
@@ -44,7 +44,7 @@ document.querySelector("#app").innerHTML = `
               )
               .join("")}
           </div>
-          <h4 id="description">A cubic 3D model is a geometric representation of a cube, consisting of six equal square faces joined at right angles. Each edge of the cube is of equal length, forming a symmetrical, rigid structure. The model can be textured, colored, or transparent, and it may include variations such as beveled edges or hollow interiors, depending on its intended purpose in design, animation, or engineering.</h4>
+          <h4 id="description">A Balanced Lifestyle is a Cadavre Exquis that highlights the importance of balancing the many things in one's life to remain happy and healthy. Too often in this world we get overwhelmed by work that we forget to balance it out with something we love. So, this Cadavre Exquis aims to show that everything in life needs to be balanced and in the picture rather than something taking up most of the space only leaving a small corner for everything else.</h4>
         </div>
       </div>
     
