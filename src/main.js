@@ -55,7 +55,7 @@ document.querySelector("#app").innerHTML = `
             <a href="file:///C:/Users/allys/Downloads/BalanceImages/ImageLogos.jpg" target="_blank">
             </a>
           </div>
-          <h4 id="description">A Balanced Lifestyle is a Cadavre Exquis that highlights the importance of balancing the many things in one's life to remain happy and healthy. Too often in this world we get overwhelmed by work that we forget to balance it out with something we love. So, this Cadavre Exquis aims to show that everything in life needs to be balanced and in the picture rather than something taking up most of the space only leaving a small corner for everything else.</h4>
+          <h4 id="description">A Balanced Lifestyle is a Cadavre Exquis that highlights the importance of balancing the many things in one's life to remain happy and healthy. Too often in this world we get overwhelmed by work that we forget to balance it out with something we love. So, this Cadavre Exquis aims to show that everything in life needs to be balanced rather than having only one thing that takes up most of the time which only leaves a small amount for everything else.</h4>
         </div>
       </div>
     
