@@ -34,15 +34,26 @@ document.querySelector("#app").innerHTML = `
       <div id="project-row">
       A Balanced Lifestyle
         <div class="three-model">
-          <img src="./BalanceImages/Balancebox.jpg" id="model1" alt="Model 1 Image" />
+          <a href="./BalanceImages/Balancebox.jpg" target="_blank">
+        <img src="./BalanceImages/Balancebox.jpg" id="model1" alt="Model 1 Image" />
+      </a>
         </div>
         <div id="images-description">
           <div id="images">
-            ${Balance
+             ${Balance
               .map(
-                (Balance, index) => `<img src="${Balance}" alt="cube${index + 1}" />`
+                (Balance, index) => `<a href="${Balance}" target="_blank"><img src="${Balance}" alt="cube${index + 1}" /></a>`
               )
               .join("")}
+
+              <a href="file:///C:/Users/allys/Downloads/BalanceImages/Cityskyline.jpg" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/BalanceImages/Forsetcabin.jpg" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/BalanceImages/Stadiumfront.jpg" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/BalanceImages/ImageLogos.jpg" target="_blank">
+            </a>
           </div>
           <h4 id="description">A Balanced Lifestyle is a Cadavre Exquis that highlights the importance of balancing the many things in one's life to remain happy and healthy. Too often in this world we get overwhelmed by work that we forget to balance it out with something we love. So, this Cadavre Exquis aims to show that everything in life needs to be balanced and in the picture rather than something taking up most of the space only leaving a small corner for everything else.</h4>
         </div>
