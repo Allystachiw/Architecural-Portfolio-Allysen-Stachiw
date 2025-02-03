@@ -66,8 +66,8 @@ document.querySelector("#app").innerHTML = `
       <div id="project-row">
       Baby Dino
         <div class="three-model">
-          <a href="./3DModels/project2/Baby Dino Model.obj" target="_blank">
-        <img src="./3DModels/project2/Baby Dino Model.obj" id="model1" alt="Model 1 Image" />
+          <a href="./Modelimages/Rhino Model.png" target="_blank">
+        <img src="./Modelimages/Rhino Model.png" id="model1" alt="Model 1 Image" />
       </a>
         </div>
         <div id="images-description">
@@ -96,8 +96,8 @@ document.querySelector("#app").innerHTML = `
       <div id="project-row">
       Model Images
         <div class="three-model">
-          <a href="./3DModels/project2/Baby Dino Model.obj" target="_blank">
-        <img src="./3DModels/project2/Baby Dino Model.obj" id="model1" alt="Model 1 Image" />
+          <a href="./Modelimages/Rhino Model.png" target="_blank">
+        <img src="./Modelimages/Rhino Model.png" id="model1" alt="Model 1 Image" />
       </a>
         </div>
         <div id="images-description">
@@ -134,64 +134,7 @@ document.querySelector("#app").innerHTML = `
   </main>
 `;
 
-// Create three.js scenes for each
+
 //createThreeScene("#model1", "/3DModels/project1/cube.obj");
 createThreeScene("#model2", "/3DModels/project2/Baby Dino Model.obj");
-//createThreeScene("#model3", "/3DModels/project3/cottage.obj");
-
-// Create the scene
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('model-container').appendChild(renderer.domElement);
-
-// Add a light source
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(1, 1, 1).normalize();
-scene.add(light);
-
-// Load the .obj file
-const loader = new OBJLoader();
-loader.load(
-  './3DModels/project2/Baby Dino Model.obj',
-  function (object) {
-    scene.add(object);
-  },
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-  },
-  function (error) {
-    console.error('An error happened', error);
-  }
-);
-
-// Set the camera position
-camera.position.z = 5;
-
-// Render the scene
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-animate();
-```
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Model Viewer</title>
-  <style>
-    body { margin: 0; }
-    canvas { display: block; }
-  </style>
-</head>
-<body>
-  <div id="model-container"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>`
+createThreeScene("#model3", "/3DModels/project3/cottage.obj");
