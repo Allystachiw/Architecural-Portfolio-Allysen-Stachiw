@@ -23,7 +23,14 @@
 
 #container {
   /* Main container padding */
-  flex-grow: 1;
+  flex-grow: 1;  #model2-container {
+    /* Adjust the size of the container for Model 2 */
+    width: 80%; /* Example width */
+    max-width: 1200px; /* Example max width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Example padding */
+    background-color: #f0f0f0; /* Example background color */
+  }
   padding: 20px;
 }
 

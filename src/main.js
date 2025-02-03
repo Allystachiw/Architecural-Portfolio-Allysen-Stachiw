@@ -1,6 +1,8 @@
 import "./style.css";
 import data from "./data/data";
 import { createThreeScene } from "./threeScene";
+import * as THREE from 'three';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 
 const Balance = [
   "./BalanceImages/Cityskyline.jpg",
@@ -9,18 +11,18 @@ const Balance = [
   "./BalanceImages/ImageLogos.jpg",
 ];
 
-const trees = [
-  "./treeDrawings/tree1.jpg",
-  "./treeDrawings/tree2.jpg",
-  "./treeDrawings/tree3.jpg",
-  "./treeDrawings/tree4.jpg",
+const Dino = [
+  "./Modelimages/Dino Chart.png",
+  "./Modelimages/Pavillion.png",
+  "./Modelimages/Solid Torus.png",
+  "./Modelimages/Surface Torus.png",
 ];
 
-const houses = [
-  "./houseDrawings/houseDrawings/house1.jpg",
-  "./houseDrawings/houseDrawings/house2.jpg",
-  "./houseDrawings/houseDrawings/house3.jpg",
-  "./houseDrawings/houseDrawings/house4.jpg",
+const Dinomodel = [
+  "./Modelimages/Dino 3D Print.jpg",
+  "./Modelimages/Blender Model.png",
+  "./Modelimages/Rhino Render.png",
+  "./Modelimages/Dino Poly Model.jpg",
 ];
 
 document.querySelector("#app").innerHTML = `
@@ -59,46 +61,65 @@ document.querySelector("#app").innerHTML = `
         </div>
       </div>
     
-      ${/*Model 2 commented out
+      
+      <section id="projects">
       <div id="project-row">
-      Model 2
+      Baby Dino
         <div class="three-model">
-          <div id="model2"></div>
+          <a href="./3DModels/project2/Baby Dino Model.obj" target="_blank">
+        <img src="./3DModels/project2/Baby Dino Model.obj" id="model1" alt="Model 1 Image" />
+      </a>
         </div>
         <div id="images-description">
           <div id="images">
-            ${trees
+             ${Dino
               .map(
-                (trees, index) =>
-                  `<img src="${trees}" alt="tree${index + 1}" />`
+                (Dino, index) => `<a href="${Dino}" target="_blank"><img src="${Dino}" alt="cube${index + 1}" /></a>`
               )
               .join("")}
-          </div>
-          <h4 id="description">A 3D tree model is a geometric representation of a tree, featuring a trunk, branches, and foliage. The trunk is typically cylindrical, with textured bark, while the branches extend outward to support leaves or a canopy. It may include roots or flowers for added detail.</h4>
-        </div>
-      </div>
-*/""} 
 
-${/*Model 3 commented out
+               <a href="file:///C:/Users/allys/Downloads/Modelimages/Dino%20Chart.png" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Pavillion.png" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Solid%20Torus.png" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Surface%20Torus.png" target="_blank">
+            </a>
+          </div>
+          <h4 id="description">The charts compare the different finding between a FBX, OBJ, and STL file. The models are of a pavillion, solid torus, surface torus, and a 3D model of Baby Dino, a mascot for the Dinos Womens Rugby Team.</h4>
+        </div>
+      </div>
+
+
+      <section id="projects">
       <div id="project-row">
-      Model 3
+      Model Images
         <div class="three-model">
-          <div id="model3"></div>
+          <a href="./3DModels/project2/Baby Dino Model.obj" target="_blank">
+        <img src="./3DModels/project2/Baby Dino Model.obj" id="model1" alt="Model 1 Image" />
+      </a>
         </div>
         <div id="images-description">
           <div id="images">
-            ${houses
+             ${Dinomodel
               .map(
-                (house, index) => 
-                  `<img src="${house}" alt="house${index + 1}" />`
+                (Dinomodel, index) => `<a href="${Dinomodel}" target="_blank"><img src="${Dinomodel}" alt="cube${index + 1}" /></a>`
               )
               .join("")}
+
+              <a href="file:///C:/Users/allys/Downloads/Modelimages/Dino%203D%20Print.jpg" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Blender%20Model.png" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Rhino%20Render.png" target="_blank">
+            </a>
+            <a href="file:///C:/Users/allys/Downloads/Modelimages/Dino%20Poly%20Model.jpg" target="_blank">
+            </a>
           </div>
-          <h4 id="description">A 3D house model is a geometric representation of a house, featuring walls, a roof, and windows. It often includes additional details such as doors, chimneys, and balconies, with textures like brick, wood, or stucco to enhance realism. The interior may also feature rooms, furniture, and lighting for a more detailed design.</h4>
+          <h4 id="description">Images of the 3D Baby Dino model.</h4>
         </div>
       </div>
-      */""}
-    </section>
 
     <ul id="footer-items">
       <li>Email: ${data.contact.email}</li>
@@ -115,5 +136,62 @@ ${/*Model 3 commented out
 
 // Create three.js scenes for each
 //createThreeScene("#model1", "/3DModels/project1/cube.obj");
-//createThreeScene("#model2", "/3DModels/project2/tree.obj");
+createThreeScene("#model2", "/3DModels/project2/Baby Dino Model.obj");
 //createThreeScene("#model3", "/3DModels/project3/cottage.obj");
+
+// Create the scene
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('model-container').appendChild(renderer.domElement);
+
+// Add a light source
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 1).normalize();
+scene.add(light);
+
+// Load the .obj file
+const loader = new OBJLoader();
+loader.load(
+  './3DModels/project2/Baby Dino Model.obj',
+  function (object) {
+    scene.add(object);
+  },
+  function (xhr) {
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
+  function (error) {
+    console.error('An error happened', error);
+  }
+);
+
+// Set the camera position
+camera.position.z = 5;
+
+// Render the scene
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
+```
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Model Viewer</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <div id="model-container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>`
